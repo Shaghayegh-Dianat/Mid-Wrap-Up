@@ -1,11 +1,10 @@
 public class Lecture4Exercises {
+    public long factorial ( int n){
+        if(n==1||n==0)
+            return  1;
+        else
+            return n*factorial(n-1);
 
-    /*
-     *   implement a function that returns factorial of given n
-     *   lecture 4 page 15
-     */
-    public long factorial(int n) {
-        return 0L;
     }
 
     /*
@@ -13,16 +12,25 @@ public class Lecture4Exercises {
      *   the series -> 1, 1, 2, 3, 5, 8, ...
      *   lecture 4 page 19
      */
-    public long fibonacci(int n) {
-        return 0;
+    public long fibonacci ( int n){
+        if(n==1||n==2)
+            return 1;
+        else
+            return fibonacci(n-1)+fibonacci(n-2);
+
     }
 
     /*
      *   implement a function that return reverse of a given word
      *   lecture 4 page 19
      */
-    public String reverse(String word) {
-        return null;
+    public String reverse (String word){
+        int n=word.length();
+        String result="";
+        for(int i=n-1;i>=0;i--) {
+            result+=word.charAt(i);
+        }
+        return result;
     }
 
     /*
@@ -31,8 +39,14 @@ public class Lecture4Exercises {
      *   palindrome is like 'wow', 'never odd or even', 'Wow'
      *   lecture 4 page 19
      */
-    public boolean isPalindrome(String line) {
-        return false;
+    public boolean isPalindrome (String line){
+        String mainLine=line.toLowerCase().replaceAll("\\s","");
+
+        if(mainLine.equals(reverse(mainLine)))
+            return true;
+        else
+            return false;
+
     }
 
     /*
@@ -46,7 +60,23 @@ public class Lecture4Exercises {
      *   o           *
      *   lecture 4 page 26
      */
-    public char[][] dotPlot(String str1, String str2) {
-        return null;
+    public char[][] dotPlot (String str1, String str2){
+        int n=str1.length();
+        int m=str2.length();
+        char [][] result=new char[n][m];
+        for(int i=0;i<n;i++){
+            for (int j=0;j<m;j++){
+                if (str1.charAt(i)==str2.charAt((j)))
+                    result[i][j]='*';
+                else
+                    result[i][j]=' ';
+            }
+        }
+        return result;
     }
+
+
 }
+
+
+
